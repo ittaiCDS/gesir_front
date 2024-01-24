@@ -1,0 +1,51 @@
+<div class="container">
+    <h1 class="text-center">Crear Proveedor</h1>
+    <a href="#" routerLink="/proveedor/index" class="btn btn-warning">Regresar al inicio</a>
+    
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-group">
+            <label for="clave">Clave: </label>
+            <input type="text" id="clave" formControlName="clave" class="form-control">
+            <div *ngIf="f['clave'].touched && f['clave'].invalid" class="alert alert-danger">
+                <div *ngIf="f['clave'].errors && f['clave'].errors['required']">
+                    Ingrese una clave valida
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre: </label>
+            <input type="text" id="nombre" formControlName="nombre" class="form-control">
+            <div *ngIf="f['nombre'].touched && f['nombre'].invalid" class="alert alert-danger">
+                <div *ngIf="f['nombre'].errors && f['nombre'].errors['required']">
+                    Ingrese un Nombre valido
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="estado">Estado: </label>
+            <input type="text" id="estado" formControlName="estado" class="form-control">
+            <div *ngIf="f['estado'].touched && f['estado'].invalid" class="alert alert-danger">
+                <div *ngIf="f['estado'].errors && f['estado'].errors['required']">
+                    Ingrese un estado valido
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="estatus">Estus: </label>
+            <select id="estatus" formControlName="estatus" class="form-control">
+                <option [value]="true">Activo</option>
+                <option [value]="false">Inactivo</option>
+            </select>
+            <div *ngIf="f['estatus'].touched && f['estatus'].invalid" class="alert alert-danger">
+                <div *ngIf="f['estatus'].errors && f['estatus'].errors['required']">
+                    Ingrese un estatus valido
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
+            Crear
+        </button>
+    </form>
+
+</div>

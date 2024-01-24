@@ -1,0 +1,30 @@
+<div class="container">
+    <h1 class="text-center"> Proveedores - GeSIR</h1>
+    <a href="#" routerLink="/proveedor/create" class="btn btn-success"> Create Proveedor</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CLAVE</th>
+                <th>NOMBRE</th>
+                <th>ESTADO</th>
+                <th>ESTATUS</th>
+                <th width="250px">ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let proveedor of proveedores">
+                <td>{{ proveedor.id }}</td>
+                <td>{{ proveedor.clave }}</td>
+                <td>{{ proveedor.nombre }}</td>
+                <td>{{ proveedor.estado }}</td>
+                <td>{{ proveedor.estatus }}</td>
+                <td>
+                    <a href="#" [routerLink]="['/proveedor/',proveedor.id,'view']" class="btn btn-info btn-sm">Ver</a>
+                    &nbsp; <a href="#" [routerLink]="['/proveedor/',proveedor.id,'edit']" class="btn btn-primary btn-sm">Editar</a>
+                    &nbsp; <button class="btn btn-danger btn-sm" type="button" (click)="deleteProveedor(proveedor.id)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
